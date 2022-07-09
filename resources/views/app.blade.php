@@ -13,6 +13,7 @@
         @routes
         @vite('resources/js/app.js')
         @inertiaHead
+        @vite('resources/js/app.js')
     </head>
     <body class="font-sans antialiased">
         @inertia

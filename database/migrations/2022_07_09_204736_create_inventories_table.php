@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('article');
             $table->string('purchase_date');
             $table->string('location_a');
+            $table->string('photo', 2048)->nullable();
             $table->timestamps();
         });
     }

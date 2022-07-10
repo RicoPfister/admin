@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Storage;
 
 class SendController extends Controller
 {
@@ -15,7 +16,7 @@ class SendController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -39,23 +40,31 @@ class SendController extends Controller
     {
         // dd($request);
 
-        // $request->validate([
-        //     'arcticle' => 'required',
-        //     'purchase_date' => 'required',
-        //     'location_a' => 'required',
-        //     ]);
+        $request->validate([
+            'article' => 'required',
+            'purchase_date' => 'required',
+            'location_a' => 'required',
+            //  'photo' => 'required|mimes:jpeg,jpg,gif|max:2048',
+            ]);
+
+
 
             $entry = new Inventory();
-                      // $comment->user_id = Auth::user()->id;
+            // $comment->user_id = Auth::user()->id;
             $entry->article = $request->article;
             $entry->purchase_date = $request->purchase_date;
             $entry->location_a = $request->location_a;
+            $entry->photo = $request->file('photo')->hashName();
             $entry->save();
+
+            Storage::disk('local')->put('public/images/inventory/', $request->file('photo'));
 
             session()->flash('flash.banner', 'Your comment has been successfully sent.');
             session()->flash('flash.bannerStyle', 'success');
 
-            return Inertia::render('/', []);
+            // return Inertia::render('/', []);
+            return redirect('/');
+
     }
 
     /**

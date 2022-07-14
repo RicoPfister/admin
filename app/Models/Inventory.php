@@ -9,10 +9,10 @@ class Inventory extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'article',
-        'purchase_date',
-        'location_a',
-        'photo'
-    ];
+    // protected $fillable = [
+    //     'article',
+    //     'purchase_date',
+    //     'location_a',
+    //     'photo'
+    // ];
 }

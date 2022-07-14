@@ -23,7 +23,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'photos' => Inventory::select('photo')->get()
+        'entries' => Inventory::all()
     ]);
 });
 

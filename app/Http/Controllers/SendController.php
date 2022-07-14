@@ -40,24 +40,51 @@ class SendController extends Controller
     {
         // dd($request);
 
-        $request->validate([
-            'article' => 'required',
-            'purchase_date' => 'required',
-            'location_a' => 'required',
-            //  'photo' => 'required|mimes:jpeg,jpg,gif|max:2048',
-            ]);
+        // $request->validate([
+        //     'article' => 'required',
+        //     'purchase_date' => 'required',
+        //     'location_a' => 'required',
+        //     //  'photo' => 'required|mimes:jpeg,jpg,gif|max:2048',
+        //     ]);
+
+        // PHP helper function
+        function debug_to_console($data) {
+            $output = $data;
+            if (is_array($output))
+                $output = implode(',', $output);
+
+            echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+        }
+        // dd($request->file('documents'));
 
 
 
             $entry = new Inventory();
             // $comment->user_id = Auth::user()->id;
-            $entry->article = $request->article;
+            $entry->item = $request->item;
+            $entry->media = $request->media;
+            $entry->keywords = $request->keywords;
+            $entry->producer = $request->producer;
             $entry->purchase_date = $request->purchase_date;
+            $entry->price = $request->price;
             $entry->location_a = $request->location_a;
-            $entry->photo = $request->file('photo')->hashName();
+            $entry->location_b = $request->location_b;
+
+            $fileString = "";
+
+            $dataString =[];
+            foreach($request->file('documents') as $dataString) {
+
+                $fileString .= $dataString->hashName().";";
+            }
+
+            $entry->documents = $fileString;
+
             $entry->save();
 
-            Storage::disk('local')->put('public/images/inventory/', $request->file('photo'));
+            foreach($request->file('documents') as $dataString) {
+                Storage::disk('local')->put('public/images/inventory/', $dataString);
+            }
 
             session()->flash('flash.banner', 'Your comment has been successfully sent.');
             session()->flash('flash.bannerStyle', 'success');

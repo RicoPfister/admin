@@ -74,9 +74,9 @@ class SendController extends Controller
 
             $dataString =[];
             foreach($request->file('documents') as $dataString) {
-
-                $fileString .= $dataString->hashName().";";
+                $fileString .= $request->documentsType."-".$dataString->hashName().";";
             }
+            $fileString  = substr($fileString , 0, -1);
 
             $entry->documents = $fileString;
 

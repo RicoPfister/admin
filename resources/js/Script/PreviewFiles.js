@@ -5,7 +5,7 @@ export function PreviewFiles() {
 
     function readAndPreview(file) {
         // Make sure `file.name` matches our extensions criteria
-        if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+        if (/\.(jp?g|png|gif)$/i.test(file.name)) {
             const reader = new FileReader();
 
             reader.addEventListener("load", function () {
@@ -27,13 +27,6 @@ export function PreviewFiles() {
         [].forEach.call(files, readAndPreview);
         // console.log(files)
     }
-}
-
-export function BrowseCheckUse() {
-    // if ( typeof files != 'undefined') {
-    //     // console.log(files)
-    //     // [].forEach.call(files, readAndPreview);
-    // }
 }
 
 

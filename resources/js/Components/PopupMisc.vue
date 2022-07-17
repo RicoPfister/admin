@@ -5,8 +5,8 @@
                 <div class="border-b border-black pb-2 mb-2"><b>Inventory - Add Documents</b></div>
                         <slot />
                 <div class="flex justify-end items-end gap-2 pt-3 border-t border-black">
-                    <button class="text-left w-fit bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" type="button" @click.prevent="$emit('closeCancel')">Cancel</button>
-                    <button class="text-left w-fit bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" type="button" @click.prevent="$emit('closeAdd')">Add</button>
+                    <button class="text-left w-fit bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" type="button" @click.prevent="$emit('MiscPopUpCancel')">Cancel</button>
+                    <button class="text-left w-fit bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded" type="button" @click.prevent="$emit('MiscPopUpClose')">Add</button>
                 </div>
             </div>
         </div>
@@ -19,9 +19,7 @@ import { Inertia, Method } from "@inertiajs/inertia";
 import { useForm } from '@inertiajs/inertia-vue3';
 import { ref } from 'vue';
 
-defineEmits(['closeAdd', 'closeCancel']);
-
-
+defineEmits(['MiscPopUpClose', 'MiscPopUpCancel']);
 
 </script>
 

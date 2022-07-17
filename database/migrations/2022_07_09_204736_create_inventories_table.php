@@ -14,16 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('inventories', function (Blueprint $table) {
-            $table->id('inventory_id');
+            $table->id();
             $table->string('item');
-            $table->enum('media', ['Book', 'Music', 'Software', 'Video']);
-            $table->string('keywords');
-            $table->string('producer');
+            $table->enum('media', ['Administration', 'Place', 'Furniture', 'PassivDevice', 'ActiveDevice', 'Consumable', 'Book', 'Music', 'Software', 'Video', 'Others']);
+            $table->string('keywords')->nullable();
+            $table->string('producer')->nullable();
             $table->date('purchase_date');
             $table->integer('price');
             $table->string('location_a');
-            $table->string('location_b');
-            $table->string('documents', 2048)->nullable();
+            $table->string('location_b')->nullable();
+            $table->string('discard_date')->nullable();
+            $table->string('voucher')->nullable();
+            $table->string('rent')->nullable();
             $table->timestamps();
         });
     }

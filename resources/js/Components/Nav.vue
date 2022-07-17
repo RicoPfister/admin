@@ -22,7 +22,7 @@
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
             <div class="text-green-600">Statistic</div>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
-            <div class="text-pink-500">Ricomazier</div>
+            <div class="text-pink-500">Ricomizer</div>
         </div>
     </div>
 </div>

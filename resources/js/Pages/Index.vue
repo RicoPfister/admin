@@ -8,14 +8,10 @@
 
     <div class="container mx-auto mt-20 mb-3">
         <Nav />
-        <!-- <Create /> -->
-        <!-- <Filter /> -->
-        <List />
-        <!-- <Detail /> -->
+        <Accounting />
     </div>
 
 </div>
-
 
 </template>
 
@@ -23,10 +19,7 @@
 
 import { Head } from '@inertiajs/inertia-vue3'
 import Nav from '../Components/Nav.vue'
-// import Create from '../Components/Create.vue'
-// import Filter from '../Components/Filter.vue'
-import List from '../Components/List.vue'
-// import Detail from '../Components/Detail.vue'
+import Accounting from '../Components/Accounting.vue'
 
 </script>
 

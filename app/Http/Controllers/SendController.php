@@ -55,7 +55,7 @@ class SendController extends Controller
             // $comment->user_id = Auth::user()->id;
             $entry->item = $request->item;
             $entry->media = $request->media;
-            if(isset($entry->keywords)){
+            if(isset($request->keywords)){
                 $entry->keywords = $request->keywords;
             }
             if(isset($request->producer)){

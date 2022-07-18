@@ -4,11 +4,12 @@
     <meta name="Rico Admin" content="Rico Admin">
     </Head>
 
-<div class="flex h-screen bg-lime-50">
+<div class="flex h-screen overflow-y-scroll bg-lime-50">
 
-    <div class="container mx-auto mt-20 mb-3">
+    <div class="container mx-auto mt-20">
         <Nav />
         <Accounting />
+        <div class="h-20"></div>
     </div>
 
 </div>

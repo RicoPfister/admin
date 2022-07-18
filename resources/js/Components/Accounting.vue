@@ -2,29 +2,48 @@
 
 <div class="border border-gray-500 bg-gray-300 p-3 pl-4 mt-3 rounded">
     <div class="flex justify-between">
-        <div><b>Accounting</b></div>
+
+ <div><b>[-] Accounting</b> <span v-if="createFilterOpen">*required fields for creating a new entry</span></div>
         <div class="flex">
-            <div class="text-black">Last Entries</div>
+            <button class="" type="button" @click='lastEntriesOpenSwitcher'><span v-if="lastEntriesOpen"><b>Last Entries</b></span><span v-else>Last Entries</span></button>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
-            <div class="text-green-800">Filter</div>
+            <button class="" type="button" @click='createFilterOpenSwitcher'>Create/Filter</button>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
-            <div class="text-green-600">Statistic</div>
-            <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
-            <div class="text-pink-500">Create</div>
+            <button class="" type="button" @click='statisticOpenSwitcher'>Statistic</button>
         </div>
     </div>
 </div>
 
-<AccountingCreate />
-<AccountingFilter />
-<AccountingList />
+<AccountingList v-if="lastEntriesOpen"/>
+<AccountingCreateFilter v-if="createFilterOpen"/>
+<AccountingStatistic v-if="statisticOpen"/>
 
 </template>
 
 <script setup>
 
-import AccountingCreate from './AccountingCreate.vue'
+import { ref } from 'vue';
+
+import AccountingCreateFilter from './AccountingCreateFilter.vue'
 import AccountingList from './AccountingList.vue'
-import AccountingFilter from './AccountingFilter.vue'
+import AccountingStatistic from './AccountingStatistic.vue'
+
+defineEmits(['CreateFilterOpen']);
+
+let createFilterOpen = ref(false);
+let lastEntriesOpen = ref(false);
+let statisticOpen = ref(false);
+
+function createFilterOpenSwitcher() {
+    createFilterOpen.value = !createFilterOpen.value;
+}
+
+function lastEntriesOpenSwitcher() {
+    lastEntriesOpen.value = !lastEntriesOpen.value;
+}
+
+function statisticOpenSwitcher() {
+    statisticOpen.value = !statisticOpen.value;
+}
 
 </script>

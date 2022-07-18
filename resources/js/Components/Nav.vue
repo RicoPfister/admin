@@ -2,7 +2,7 @@
 
 <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded">
     <div class="flex justify-between">
-        <div><b>Rico Admin</b></div>
+        <div><b>[-] Rico Admin</b></div>
         <div class="flex">
             <div class="text-stone-600">Accounting</div>
             <div>&nbsp;|&nbsp;</div>
@@ -17,6 +17,8 @@
             <div class="text-blue-700">Medicine</div>
             <div>&nbsp;|&nbsp;</div>
             <div class="text-purple-600">Engineering</div>
+            <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
+            <div class="text-green-800">Last Entries</div>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
             <div class="text-green-800">Filter</div>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>

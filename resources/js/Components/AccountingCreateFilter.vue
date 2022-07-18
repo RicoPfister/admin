@@ -47,12 +47,12 @@
                 <div class="text-red-600" v-if="$page.props.errors.price">{{ $page.props.errors.price }}</div>
             </div>
             <div class="flex flex-col w-36 mr-2 grow">
-                <label for="location_a">Location Main*:</label>
+                <label for="location_a">Location A*:</label>
                 <input type="text" id="location_a" v-model="form.location_a" />
                 <div class="text-red-600" v-if="$page.props.errors.location_a">{{ $page.props.errors.location_a }}</div>
             </div>
             <div class="flex flex-col w-36 mr-2 grow">
-                <label for="location_b">Location Storage:</label>
+                <label for="location_b">Location B:</label>
                 <input type="text" id="location_b" v-model="form.location_b" />
                 <div class="text-red-600" v-if="$page.props.errors.location_b">{{ $page.props.errors.location_b }}</div>
             </div>
@@ -84,64 +84,61 @@
     </form>
 </div>
 
+<PopupDocuments @closeAdd="isModalOpen = false" @closeCancel="cancelDocumentationUpload" v-if="isModalOpen">
 
-                                   <PopupDocuments @closeAdd="isModalOpen = false" @closeCancel="cancelDocumentationUpload" v-if="isModalOpen">
+<div class="">
+    <table class="table-auto w-3/4">
+        <thead>
+            <tr class="text-left">
+                <th>Document type:</th>
+                <th>Preview:</th>
+                <th>Choose at least one file from your computer:</th>
+            </tr>
+        </thead>
+        <tbody class="">
+            <tr class="h-10">
+                <td>Bill/Receipt</td>
+                <td><div id="preview" class="border h-6 w-6"></div></td>
+                <td><input class="w-full" id="documents" type="file" @input="form.documentsBill = $event.target.files; Browse.PreviewFiles" multiple /></td>
+            </tr>
+            <tr class="h-10">
+                <td>Correspondence</td>
+                <td><div id="preview" class="border h-6 w-6"></div></td>
+                <td><input class="w-full" id="documents" type="file" @input="form.documentsCorrespondence = $event.target.files; Browse.PreviewFiles" multiple /></td>
+            </tr>
+            <tr class="h-10">
+                <td>Media</td>
+                <td><div id="preview" class="border h-6 w-6"></div></td>
+                <td><input class="w-full" id="documents" type="file" @input="form.documentsMedia = $event.target.files; Browse.PreviewFiles" multiple /></td>
+            </tr>
+            <tr class="h-10">
+                <td>Others</td>
+                <td><div id="preview" class="border h-6 w-6"></div></td>
+                <td><input class="w-full" id="documents" type="file" @input="form.documentsOthers = $event.target.files; Browse.PreviewFiles" multiple /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-                                    <div class="">
-                                        <table class="table-auto w-3/4">
-                                            <thead>
-                                                <tr class="text-left">
-                                                    <th>Document type:</th>
-                                                    <th>Preview:</th>
-                                                    <th>Choose at least one file from your computer:</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="">
-                                                <tr class="h-10">
-                                                    <td>Bill/Receipt</td>
-                                                    <td><div id="preview" class="border h-6 w-6"></div></td>
-                                                    <td><input class="w-full" id="documents" type="file" @input="form.documentsBill = $event.target.files; Browse.PreviewFiles" multiple /></td>
-                                                </tr>
-                                                <tr class="h-10">
-                                                    <td>Correspondence</td>
-                                                    <td><div id="preview" class="border h-6 w-6"></div></td>
-                                                    <td><input class="w-full" id="documents" type="file" @input="form.documentsCorrespondence = $event.target.files; Browse.PreviewFiles" multiple /></td>
-                                                </tr>
-                                                <tr class="h-10">
-                                                    <td>Media</td>
-                                                    <td><div id="preview" class="border h-6 w-6"></div></td>
-                                                    <td><input class="w-full" id="documents" type="file" @input="form.documentsMedia = $event.target.files; Browse.PreviewFiles" multiple /></td>
-                                                </tr>
-                                                <tr class="h-10">
-                                                    <td>Others</td>
-                                                    <td><div id="preview" class="border h-6 w-6"></div></td>
-                                                    <td><input class="w-full" id="documents" type="file" @input="form.documentsOthers = $event.target.files; Browse.PreviewFiles" multiple /></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+</PopupDocuments>
 
-                                </PopupDocuments>
-
-
-                                <PopupMisc @MiscPopUpClose="MiscPopUpOpen = false" @MiscPopUpCancel="cancelMiscUpload" v-if="MiscPopUpOpen">
-                                    <div class="pb-2">
-                                        <div class="mr-2 pb-1">
-                                            <div class="">
-                                                <input type="date" id="misc" v-model="form.discard_date"  />
-                                                <label for="misc">&nbsp;No longer in my possession since</label>
-                                                <div class="text-red-600" v-if="$page.props.errors.discard_date">{{ $page.props.errors.discard_date }}</div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" v-model="form.voucher">
-                                            <label for="vehicle1">&nbsp;Voucher</label><br>
-                                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" v-model="form.rent">
-                                            <label for="vehicle2">&nbsp;Rent</label><br>
-                                        </div>
-
-                                    </div>
-                                </PopupMisc>
+<PopupMisc @MiscPopUpClose="MiscPopUpOpen = false" @MiscPopUpCancel="cancelMiscUpload" v-if="MiscPopUpOpen">
+<div class="pb-2">
+    <div class="mr-2 pb-1">
+        <div class="">
+            <input type="date" id="misc" v-model="form.discard_date"  />
+            <label for="misc">&nbsp;No longer in my possession since</label>
+            <div class="text-red-600" v-if="$page.props.errors.discard_date">{{ $page.props.errors.discard_date }}</div>
+        </div>
+    </div>
+    <div>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" v-model="form.voucher">
+        <label for="vehicle1">&nbsp;Voucher</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" v-model="form.rent">
+        <label for="vehicle2">&nbsp;Rent</label><br>
+    </div>
+</div>
+</PopupMisc>
 
 </template>
 
@@ -175,21 +172,12 @@ const data = new FormData();
         rent: null,
     });
 
-    //     const formDoc = useForm({
-    //     documents: null,
-    //     documentType: null,
-    // });
-
     let isModalOpen = ref(false);
     let MiscPopUpOpen = ref(false);
 
     function BrowseCheck() {
         isModalOpen.value = true;
     }
-
-    //     function submit() {
-    //     Inertia.post("/store", store.store);
-    // };
 
 function submit() {
     Inertia.post("/store", store.store, {
@@ -230,7 +218,3 @@ function MiscPopUp() {
 }
 
 </script>
-
-<style>
-
-</style>

@@ -7,8 +7,8 @@
 <div class="flex h-screen overflow-y-scroll bg-lime-50">
 
     <div class="container mx-auto mt-20">
-        <Nav />
-        <Accounting />
+        <Nav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen"/>
+        <Accounting  v-if="accountingOpen"/>
         <div class="h-20"></div>
     </div>
 
@@ -21,6 +21,22 @@
 import { Head } from '@inertiajs/inertia-vue3'
 import Nav from '../Components/Nav.vue'
 import Accounting from '../Components/Accounting.vue'
+
+import { ref } from 'vue';
+
+defineEmits(['accountingOpenSwitcher', 'accountingOpen']);
+
+let accountingOpen = ref(false);
+
+function accountingOpenUse() {
+    accountingOpen.value = !accountingOpen.value;
+}
+
+// const props = defineProps({
+//   accountingOpen: String
+// })
+
+const props = defineProps(['accountingOpen']);
 
 </script>
 

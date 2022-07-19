@@ -2,9 +2,10 @@
 
 <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded">
     <div class="flex justify-between">
-        <div><b>[-] Rico Admin</b></div>
+        <div><b>Rico Admin</b></div>
         <div class="flex">
-            <div class="text-stone-600">Accounting</div>
+            <button class="text-stone-600" type="button" @click.prevent="$emit('accountingOpenSwitcher')"><span v-if="accountingOpen"><b>Accounting</b></span><span v-else>Accounting</span></button>
+
             <div>&nbsp;|&nbsp;</div>
             <div class="text-rose-800">Contacts</div>
             <div>&nbsp;|&nbsp;</div>
@@ -31,4 +32,10 @@
 
 </template>
 
-<script setup></script>
+<script setup>
+
+defineEmits(['accountingOpenSwitcher']);
+
+const props = defineProps(['accountingOpen']);
+
+</script>

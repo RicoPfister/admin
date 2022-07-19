@@ -7,10 +7,10 @@
             <button class="text-stone-600" type="button" @click.prevent="$emit('accountingOpenSwitcher')"><span v-if="accountingOpen"><b>Accounting</b></span><span v-else>Accounting</span></button>
 
             <div>&nbsp;|&nbsp;</div>
+            <div class="text-rose-600">Time Tracking</div>
+            <div>&nbsp;|&nbsp;</div>
             <div class="text-rose-800">Contacts</div>
-            <div>&nbsp;|&nbsp;</div>
-            <div class="text-rose-600">Facts</div>
-            <div>&nbsp;|&nbsp;</div>
+             <div>&nbsp;|&nbsp;</div>
             <div class="text-amber-600">Journal</div>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
             <div class="text-blue-500">Psychology</div>

@@ -5,9 +5,9 @@
 
  <div><b>Accounting</b> <span v-if="createFilterOpen">*required fields for creating a new entry</span></div>
         <div class="flex">
-            <button class="" type="button" @click='lastEntriesOpenSwitcher'><span v-if="lastEntriesOpen"><b>Last Entries</b></span><span v-else>Last Entries</span></button>
-            <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
             <button class="" type="button" @click='createFilterOpenSwitcher'><span v-if="createFilterOpen"><b>Create/Filter</b></span><span v-else>Create/Filter</span></button>
+            <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
+            <button class="" type="button" @click='lastEntriesOpenSwitcher'><span v-if="lastEntriesOpen"><b>Last Entries</b></span><span v-else>Last Entries</span></button>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
             <button class="" type="button" @click='statisticOpenSwitcher'><span v-if="statisticOpen"><b>Statistic</b></span><span v-else>Statistic</span></button>
         </div>

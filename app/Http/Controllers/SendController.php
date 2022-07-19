@@ -152,26 +152,6 @@ class SendController extends Controller
                 }
             }
 
-            // $fileString = "";
-
-            // $dataString =[];
-            // foreach($request->file('documents') as $dataString) {
-            //     $fileString .= $request->documentsType."-".$dataString->hashName().";";
-            // }
-            // $fileString  = substr($fileString , 0, -1);
-
-            // $entry->documents = $fileString;
-
-
-
-            // foreach($request->file('documents') as $dataString) {
-            //     Storage::disk('local')->put('public/images/inventory/', $dataString);
-            // }
-
-            // session()->flash('flash.banner', 'Your comment has been successfully sent.');
-            // session()->flash('flash.bannerStyle', 'success');
-
-            // // return Inertia::render('/', []);
             return redirect('/');
 
     }

@@ -6,13 +6,17 @@
 
 <div class="flex h-screen overflow-y-scroll bg-lime-50">
 
-    <div class="container mx-auto mt-20">
+    <div class="container mx-auto mt-10">
         <Nav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen"/>
         <Accounting  v-if="accountingOpen"/>
         <div class="h-20"></div>
     </div>
 
+
+
 </div>
+
+
 
 </template>
 

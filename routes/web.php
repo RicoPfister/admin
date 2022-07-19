@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\SendController;
+use App\Models\Inventory;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +19,22 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+
+    $misc['totalDBEntries'] = Inventory::count();
+    $misc['lastDBUpdate'] = Inventory::orderByDesc('updated_at')->first()->updated_at;
+    $misc['lastDBUpdateHuman'] = Inventory::orderByDesc('updated_at')->first()->updated_at->diffForHumans();
+
+    return Inertia::render('Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
+        'entries' => Inventory::orderByDesc('item')->paginate(15),
+        'misc' => $misc,
     ]);
 });
+
+Route::resource('/store', SendController::class);
 
 Route::middleware([
     'auth:sanctum',

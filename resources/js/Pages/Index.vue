@@ -1,32 +1,28 @@
 <template>
-    <Head>
-    <title>Rico Admin</title>
-    <meta name="Rico Admin" content="Rico Admin">
-    </Head>
+<Head>
+<title>Rico Pfister</title>
+<meta name="Rico Pfister" content="Rico Pfister">
+</Head>
+
+<WebsiteNav />
 
 <div class="flex h-screen overflow-y-scroll bg-lime-50">
-
-    <div class="container mx-auto mt-10">
-        <Nav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen"/>
+    <div class="container mx-auto mt-20">
+        <DatabaseNav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen"/>
         <Accounting  v-if="accountingOpen"/>
         <div class="h-20"></div>
     </div>
-
-
-
 </div>
-
-
-
 </template>
 
 <script setup>
 
 import { Head } from '@inertiajs/inertia-vue3'
-import Nav from '../Components/Nav.vue'
-import Accounting from '../Components/Accounting.vue'
-
 import { ref } from 'vue';
+
+import WebsiteNav from '../Module/Website/Components/WebsiteNav.vue'
+import DatabaseNav from '../Module/Database/Components/DatabaseNav.vue'
+import Accounting from '../Module/Database/Components/Accounting.vue'
 
 defineEmits(['accountingOpenSwitcher', 'accountingOpen']);
 

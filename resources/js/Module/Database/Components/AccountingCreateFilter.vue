@@ -150,7 +150,7 @@ import { ref } from 'vue';
 import PopupDocuments from "./PopupDocuments.vue";
 import PopupMisc from "./PopupMisc.vue";
 
-import * as Browse from '../Script/PreviewFiles.js';
+import * as Browse from '../../../Script/PreviewFiles.js';
 
 const data = new FormData();
 

@@ -20,9 +20,15 @@ use App\Models\Inventory;
 
 Route::get('/', function () {
 
-    $misc['totalDBEntries'] = Inventory::count();
-    $misc['lastDBUpdate'] = Inventory::orderByDesc('updated_at')->first()->updated_at;
-    $misc['lastDBUpdateHuman'] = Inventory::orderByDesc('updated_at')->first()->updated_at->diffForHumans();
+    // dd(Inventory::all()->sortByDesc('updated_at')->first()->updated_at);
+
+    $misc = [];
+
+    if(Inventory::count()>1){
+        $misc['totalDBEntries'] = Inventory::count();
+        $misc['lastDBUpdate'] = Inventory::orderByDesc('updated_at')->first()->updated_at;
+        $misc['lastDBUpdateHuman'] = Inventory::orderByDesc('updated_at')->first()->updated_at->diffForHumans();
+    }
 
     return Inertia::render('Index', [
         'canLogin' => Route::has('login'),

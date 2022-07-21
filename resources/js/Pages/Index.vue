@@ -4,11 +4,11 @@
 <meta name="Rico Pfister" content="Rico Pfister">
 </Head>
 
-<WebsiteNav />
+<WebsiteNav @databaseOpenSwitcher="databaseOpen=!databaseOpen"/>
 
 <div class="flex h-screen overflow-y-scroll bg-lime-50">
     <div class="container mx-auto mt-20">
-        <DatabaseNav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen"/>
+        <DatabaseNav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen" v-if="databaseOpen"/>
         <Accounting  v-if="accountingOpen"/>
         <div class="h-20"></div>
     </div>
@@ -27,16 +27,9 @@ import Accounting from '../Module/Database/Components/Accounting.vue'
 defineEmits(['accountingOpenSwitcher', 'accountingOpen']);
 
 let accountingOpen = ref(false);
+let databaseOpen = ref(false);
 
-function accountingOpenUse() {
-    accountingOpen.value = !accountingOpen.value;
-}
-
-// const props = defineProps({
-//   accountingOpen: String
-// })
-
-const props = defineProps(['accountingOpen']);
+const props = defineProps(['accountingOpen', 'databaseOpen']);
 
 </script>
 

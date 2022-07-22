@@ -9,6 +9,8 @@
 
 <script setup>
     import formatDate from '../../../Script/FormatDate.js'
+
+    const props = defineProps(['totalDBEntries', 'lastDBUpdateHuman']);
 </script>
 
 

@@ -6,13 +6,14 @@
 
 <WebsiteNav @databaseOpenSwitcher="databaseOpen=!databaseOpen"/>
 
-<div class="flex h-screen overflow-y-scroll bg-lime-50">
+<div class="flex h-screen overflow-y-scroll bg-slate-300">
     <div class="container mx-auto mt-20">
-        <DatabaseNav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen" v-if="databaseOpen"/>
-        <Accounting  v-if="accountingOpen"/>
+
+        <slot />
         <div class="h-20"></div>
     </div>
 </div>
+
 </template>
 
 <script setup>
@@ -20,13 +21,10 @@
 import { Head } from '@inertiajs/inertia-vue3'
 import { ref } from 'vue';
 
-import WebsiteNav from '../Module/Website/Components/WebsiteNav.vue'
-import DatabaseNav from '../Module/Database/Components/DatabaseNav.vue'
-import Accounting from '../Module/Database/Components/Accounting.vue'
+import WebsiteNav from './WebsiteNav.vue'
 
 defineEmits(['accountingOpenSwitcher', 'accountingOpen']);
 
-let accountingOpen = ref(false);
 let databaseOpen = ref(false);
 
 const props = defineProps(['accountingOpen', 'databaseOpen']);

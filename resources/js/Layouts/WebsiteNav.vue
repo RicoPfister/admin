@@ -1,10 +1,19 @@
 <template>
 <div class="fixed flex justify-center w-full gap-2 z-50 h-0">
 
+    <div :class="top2" class="relative gap-2 duration-500 border-black">
+        <div>
+            <div class="w-52 h-[170px] border-green-100 border-l-4 border-r-4 pl-5 bg-green-100 pt-3"></div>
+            <div class="w-52 border-green-200 border-l-4 border-r-4 border-b-4 rounded-b-3xl text-center bg-green-200 grid content-end">
+                 <Link href="/">Home</Link>
+            </div>
+        </div>
+    </div>
+
     <div :class="top1" class="relative gap-2 duration-500 border-black">
         <div class="" @mouseover='OverMainNav1' @mouseout='OutMainNav1'>
             <div class="w-52 h-[145px] border-green-100 border-l-4 border-r-4 pl-5 bg-green-100 pt-3">
-                 <button class="text-black" type="button" @click.prevent="$emit('accountingOpenSwitcher')">About Me</button>
+                 <Link href="/aboutme">About Me</Link>
                 <br>Work Experience<br>Skills<br>Hobbies<br>Social Engagements</div>
             <div class="w-52 flex border-green-200 border-l-4 border-r-4 border-b-4 rounded-b-3xl text-center bg-green-200 justify-center">
                 About Me&nbsp;
@@ -19,7 +28,7 @@
         <div>
             <div class="w-52 h-[170px] border-green-100 border-l-4 border-r-4 pl-5 bg-green-100 pt-3"></div>
             <div class="w-52 border-green-200 border-l-4 border-r-4 border-b-4 rounded-b-3xl text-center bg-green-200 grid content-end">
-                <button class="text-black" type="button" @click.prevent="$emit('databaseOpenSwitcher')">Rico Database</button>
+                 <Link href="/database">Rico Database</Link>
             </div>
         </div>
     </div>
@@ -55,8 +64,8 @@
 
 <script setup>
 
-import {computed} from 'vue';
 import { ref } from 'vue';
+import { Link } from '@inertiajs/inertia-vue3'
 
 // Get a reference to the element that you want to work with
 let sideMenu = document.getElementById('main-menu');

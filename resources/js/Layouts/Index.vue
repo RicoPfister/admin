@@ -6,7 +6,7 @@
 
 <WebsiteNav @databaseOpenSwitcher="databaseOpen=!databaseOpen"/>
 
-<div class="flex h-screen overflow-y-scroll bg-slate-300">
+<div class="flex h-screen overflow-y-scroll bg-slate-300" @scroll.native="$emit('handleScroll', $event)">
     <div class="container mx-auto mt-20">
 
         <slot />
@@ -23,11 +23,20 @@ import { ref } from 'vue';
 
 import WebsiteNav from './WebsiteNav.vue'
 
-defineEmits(['accountingOpenSwitcher', 'accountingOpen']);
+defineEmits(['accountingOpenSwitcher', 'accountingOpen', 'handleScroll']);
 
 let databaseOpen = ref(false);
+let scrollTop = ref('abc');
 
-const props = defineProps(['accountingOpen', 'databaseOpen']);
+
+
+// function handleScroll (e) {
+//     scrollTop.value = '123';
+// }
+
+// scrollTop.value = '123';
+
+defineProps(['accountingOpen', 'databaseOpen', 'handleScroll']);
 
 </script>
 

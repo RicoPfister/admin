@@ -1,8 +1,8 @@
 <template>
 
 <index>
-  <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded z-99">
-    <div class="flex justify-between">
+  <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded">
+    <div class="flex justify-between z-10">
         <div><b>Rico Database</b></div>
         <div class="flex">
             <button class="text-stone-600" type="button" @click.prevent="accountingOpen = !accountingOpen"><span v-if="accountingOpen"><b>Accounting</b></span><span v-else>Accounting</span></button>

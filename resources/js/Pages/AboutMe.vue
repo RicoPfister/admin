@@ -1,20 +1,21 @@
 <template>
 
-<index @handleScroll="log">
+<index @handleScroll="log" @toggle="toggle" test678="test_abc" ref="countComponent">
 
 <!-- sidebar -->
 <!-- heading loader -->
-<div id="headingOverview" class="fixed left-0 top-0 h-screen w-[300px] border-r">
+<div ref="myReference" id="headingOverview" class="fixed left-0 top-0 h-screen w-[300px] border-r">
     <div class="text-3xl font-bold pl-5 border-b border-black">About Me</div>
     <template v-for="(headingTop, index) in headingsTop" :key="headingTop">
-        <!-- headingpointer -->
-        <div class="absolute leading-none pl-5" :style="{top: headingTop[0]+'px'}">{{ headingTop[1] }}</div>
+       <!-- heading top position -->
+        <div class="absolute leading-none pl-5 z-40" :style="{top: headingTop[0]+'px'}"><button type="button" @click="headingLink(index)">{{ headingTop[1] }}</button></div>
     </template>
-    <div :style="{top: scrollTop+'px', height: pointerHeight+'px'}" class="relative bg-dark w-79 bg-gray-500/20 border-l-8 border-blue-600"></div>
+     <!-- heading pointer position and height -->
+    <div :style="{top: scrollTop+'px', height: pointerHeight+'px'}" class="relative bg-dark z-39 w-79 bg-gray-500/20 border-l-8 border-blue-600"></div>
 </div>
 
 <!-- content -->
-<div id="scrollMainAreaAboutMe" class="ml-[170px] w-3/5 p-0 m-0">
+<div  id="scrollMainAreaAboutMe" class="ml-[170px] w-3/5 p-0 m-0">
     <h1>Overview</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
     <br>
@@ -25,20 +26,19 @@
     <br>
     <br>
     <br>
-        <br>
     <br>
     <br>
     <br>
     <br>
-        <h1>Overview</h1>
+    <br>
+    <h1>Overview</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
-
     <br>
     <br>
     <br>
-        <br>
     <br>
-           <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>
@@ -77,6 +77,8 @@ let pointerHeight = ref('0');
 let headingsTop = ref([]);
 let event = ref([]);
 let OverviewVeewHeight = ref('0');
+let myReference = ref(null);
+defineExpose({ myReference });
 
 // sidebar heading pointer
 function log(e) {
@@ -100,9 +102,15 @@ function log(e) {
 
     }
 
+const countComponent = ref(null);
+
 
 
 onMounted(() => {
+
+    //    console.log(myReference.value);
+console.log('Current count: ', countComponent.value.count);
+
     let h1 = document.querySelectorAll('h1');
     let scrollProperties = document.getElementById('scrollMainAreaAboutMe');
     // console.log(scrollProperties.offset.top)
@@ -134,5 +142,16 @@ onMounted(() => {
     });
 
 });
+
+// function headingLink(index){
+//     // console.log(document.getElementById('test1234').scrollTop);
+
+//     // document.getElementById('scrollMainAreaAboutMe').getBoundingClientRect().scrollTop = 0;
+// }
+
+function toggle(e){
+    console.log(e);
+}
+
 
 </script>

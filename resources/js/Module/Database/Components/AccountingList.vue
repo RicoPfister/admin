@@ -37,6 +37,9 @@
 
 import Pagination from './Pagination.vue'
 
+import { Head } from '@inertiajs/inertia-vue3'
+import { ref } from 'vue';
+
 </script>
 
 

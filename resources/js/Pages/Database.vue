@@ -1,10 +1,11 @@
 <template>
 
-<div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded z-99">
+<index>
+  <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded z-99">
     <div class="flex justify-between">
         <div><b>Rico Database</b></div>
         <div class="flex">
-            <button class="text-stone-600" type="button" @click.prevent="$emit('accountingOpenSwitcher')"><span v-if="accountingOpen"><b>Accounting</b></span><span v-else>Accounting</span></button>
+            <button class="text-stone-600" type="button" @click.prevent="accountingOpen = !accountingOpen"><span v-if="accountingOpen"><b>Accounting</b></span><span v-else>Accounting</span></button>
 
             <div>&nbsp;|&nbsp;</div>
             <div class="text-rose-600">Time Tracking</div>
@@ -30,9 +31,21 @@
     </div>
 </div>
 
+<!-- <DatabaseNav :accountingOpen=accountingOpen @accountingOpenSwitcher="accountingOpen=!accountingOpen" v-if="databaseOpen"/> -->
+<Accounting  v-if="accountingOpen"/>
+
+</index>
+
 </template>
 
 <script setup>
+
+import { ref } from 'vue';
+
+import Index from '../Layouts/Index.vue'
+import Accounting from '../Module/Database/Components/Accounting.vue'
+
+let AccountingOpen = ref(false);
 
 defineEmits(['accountingOpenSwitcher']);
 

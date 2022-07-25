@@ -1,6 +1,6 @@
 <template>
 <div class="container mx-auto mt-3 mb-3 border border-gray-500 bg-gray-100 p-3 pl-4 rounded">
-    <form @submit.prevent="form.post('/store')" class="">
+    <form @submit.prevent="form.post('/database')" class="">
         <div class="flex pt-2">
             <div class="flex flex-col w-1/3 mr-2">
                 <label for="item">Article/Title*:</label>

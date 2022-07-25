@@ -1,4 +1,5 @@
 <template>
+<slot />
 
 <div class="border border-gray-500 bg-gray-300 p-3 pl-4 mt-3 rounded">
     <div class="flex justify-between">
@@ -7,6 +8,7 @@
         <div class="flex">
             <button class="" type="button" @click='createFilterOpenSwitcher'><span v-if="createFilterOpen"><b>Create/Filter</b></span><span v-else>Create/Filter</span></button>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
+            <!-- <Link :href="route('database.index')">ROBOTICS</Link> -->
             <button class="" type="button" @click='lastEntriesOpenSwitcher'><span v-if="lastEntriesOpen"><b>Last Entries</b></span><span v-else>Last Entries</span></button>
             <div>&nbsp;&lt;&nbsp;&gt;&nbsp;</div>
             <button class="" type="button" @click='statisticOpenSwitcher'><span v-if="statisticOpen"><b>Statistic</b></span><span v-else>Statistic</span></button>

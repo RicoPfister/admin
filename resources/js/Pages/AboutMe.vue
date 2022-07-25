@@ -16,7 +16,7 @@
 
 <!-- content -->
 <div  id="scrollMainAreaAboutMe" class="ml-[170px] w-3/5 p-0 m-0">
-    <h1>Overview</h1>
+    <h1>About Me</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
     <br>
     <br>
@@ -31,7 +31,7 @@
     <br>
     <br>
     <br>
-    <h1>Overview</h1>
+    <h1>Work Experience</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
     <br>
     <br>
@@ -44,22 +44,28 @@
     <br>
     <br>
     <br>
-        <h1>Overview3</h1>
+    <h1>Skills</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
-
-    <br>
-        <br>
     <br>
     <br>
     <br>
     <br>
     <br>
     <br>
-        <h1>Overview</h1>
+    <br>
+    <br>
+    <h1>Hobbies</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
-
     <br>
-    <h1>Ende</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Social Engagements</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, quibusdam. Ratione quam consequatur, nihil, perferendis facilis, amet voluptatem quaerat quae aperiam illum perspiciatis? Repudiandae velit error autem nobis et ut?</p><br>
 </div>
 
 </index>

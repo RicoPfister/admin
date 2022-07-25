@@ -20,7 +20,7 @@
                 </svg>
             </div>
 
-            <div :class="top1" :style="{display: hidden}" class="relative transition-all delay-1000 ease-in-out duration-500 z-40 w-52 h-[145px] border-green-100 -top-[145] border-l-4 border-r-4 pl-5 bg-green-100 pt-3">
+            <div :class="top1" class="absolute z-40 w-52 h-[145px] border-green-100 duration-500 border-l-4 border-r-4 pl-5 bg-green-100 pt-3">
                  <Link href="/aboutme">About Me</Link>
                 <br>Work Experience<br>Skills<br>Hobbies<br>Social Engagements
             </div>
@@ -34,6 +34,15 @@
             <div class="w-52 h-[170px] border-green-100 border-l-4 border-r-4 pl-5 bg-green-100 pt-3"></div>
             <div class="w-52 border-green-200 border-l-4 border-r-4 border-b-4 text-center bg-green-200 grid content-end">
                  <Link href="/database">Rico Database</Link>
+            </div>
+        </div>
+    </div>
+
+        <div class="relative -top-[170px] gap-2 duration-500 border-black">
+        <div>
+            <div class="w-52 h-[170px] border-green-100 border-l-4 border-r-4 pl-5 bg-green-100 pt-3"></div>
+            <div class="w-52 border-green-200 border-l-4 border-r-4 border-b-4 text-center bg-green-200 grid content-end">
+                 <Link href="#">Rico AI</Link>
             </div>
         </div>
     </div>
@@ -87,8 +96,7 @@ let menuArror2 = ref('M19 9l-7 7-7-7');
 let hidden = ref('none');
 
 function OverMainNav1(){
-hidden.value = "block";
-top1.value = 'top-0';
+top1.value = 'top-7';
 menuArror1.value = 'M5 15l7-7 7 7'
 };
 
@@ -98,7 +106,6 @@ menuArror2.value = 'M5 15l7-7 7 7'
 };
 
 function OutMainNav1(){
-hidden.value = "none";
 top1.value = '-top-[145px]';
 menuArror1.value = 'M19 9l-7 7-7-7'
 

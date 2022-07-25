@@ -1,7 +1,7 @@
 <template>
 
 <index>
-  <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded">
+  <div class="border border-gray-500 bg-gray-300 p-3 pl-4 rounded z-10">
     <div class="flex justify-between z-10">
         <div><b>Rico Database</b></div>
         <div class="flex">

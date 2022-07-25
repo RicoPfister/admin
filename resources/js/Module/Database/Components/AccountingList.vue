@@ -13,8 +13,8 @@
                 <th class="w-1/10">Location A</th>
                 <th class="w-20">Misc/Doc</th>
             </tr>
-            <tr v-for="entry in $page.props.entries.data" :key="entry.id" class="even:bg-gray-100 odd:bg-gray-200">
-                <td class="truncate">{{ entry['item']}}</td>
+            <tr v-for="entry in $page.props.entries.data" :key="entry.id" class="even:bg-gray-100 odd:bg-gray-200" >
+                <td class="truncate"><Link :href="route('articles.index', { category: 'robotics' })">{{ entry['item']}}</Link></td>
                 <td class="truncate">{{ entry['producer']}}</td>
                 <td class="truncate">{{ entry['keywords']}}</td>
                 <td class="truncate">{{ entry['media']}}</td>

@@ -39,6 +39,7 @@ Route::get('/database/accounting', function () {
 // Route::resource('/database/accounting/create', DatabaseAccountingCreateController::class);
 
 Route::get('/database/accounting/filter', [Accounting::class, 'filter'])->name('database/accounting.filter');
+Route::get('/database/accounting/search', [Accounting::class, 'search'])->name('database/accounting.search');
 Route::get('/database/accounting/detail', [Accounting::class, 'detail'])->name('database/accounting.detail');
 Route::get('/database/accounting/statistic', [Accounting::class, 'statistic'])->name('database/accounting.statistic');
 Route::get('/database/accounting/create', [Accounting::class, 'create'])->name('database/accounting.create');

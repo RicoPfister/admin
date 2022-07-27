@@ -16,15 +16,20 @@ class Accounting extends Controller
     {
         if(Inventory::count()>1){
 
-            if (isset($request->sort)){
+            $misc = [];
+
+            if (isset($request->search_row)){
+                $misc['search_string'] = $request->search_string;
+                $entries = Inventory::where($request->search_row, '=', $request->search_string)->orderByDesc('updated_at')->paginate(15);
+            }
+
+            elseif (isset($request->sort)){
                 // dd($entries = Inventory::orderByDesc('updated_at'));
                 // $test123 = $request->sort_array->getCollection()->sortBy('item');
                 dd($request->sort_array);
-            }
+            }  
 
-            $misc = [];
-
-            if(isset($request->media)){
+            elseif(isset($request->media)){
                 $entries = Inventory::where('media', '=', $request->media)->orderByDesc('updated_at')->paginate(15);
             }
 
@@ -171,5 +176,22 @@ class Accounting extends Controller
             }
 
             return redirect('/databaselist');
+    }
+
+    public function search(Request $request)
+    {
+        $searchString = $request->search_string;
+        $searchRow = $request->search_row;
+
+        // save data in session
+        $request->session()->put('search_string',$searchString);
+        $request->session()->put('search_cat', $searchRow);
+
+        // dd($request);
+
+        // open default blade and pass arrays
+        // return view('layouts/default', ['searchResult' => $searchResult]);
+        return redirect('/database/accounting/filter');
+
     }
 }

@@ -33,7 +33,7 @@
         <div>
             <div class="w-52 h-[170px] border-green-100 border-l-4 border-r-4 pl-5 bg-green-100 pt-3"></div>
             <div class="w-52 border-green-200 border-l-4 border-r-4 border-b-4 text-center bg-green-200 grid content-end">
-                 <Link href="/database">Rico Database</Link>
+                <Link href="/database">Rico Database</Link>
             </div>
         </div>
     </div>

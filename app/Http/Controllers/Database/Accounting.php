@@ -1,52 +1,60 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Database;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Inventory;
 use App\Models\Document;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
 
-class DatabaseController extends Controller
+class Accounting extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $misc = [];
+    public function filter(Request $request)
 
+    {
         if(Inventory::count()>1){
-            $entries = Inventory::orderByDesc('updated_at')->paginate(15);
+
+            if (isset($request->sort)){
+                // dd($entries = Inventory::orderByDesc('updated_at'));
+                // $test123 = $request->sort_array->getCollection()->sortBy('item');
+                dd($request->sort_array);
+            }
+
+            $misc = [];
+
+            if(isset($request->media)){
+                $entries = Inventory::where('media', '=', $request->media)->orderByDesc('updated_at')->paginate(15);
+            }
+
+            elseif (isset($request->producer)){
+                $entries = Inventory::where('producer', '=', $request->producer)->orderByDesc('updated_at')->paginate(15);
+            }
+
+            elseif(isset($request->keywords)){
+                $entries = Inventory::where('keywords', '=', $request->keywords)->orderByDesc('updated_at')->paginate(15);
+            }
+
+            elseif(isset($request->location_a)){
+                $entries = Inventory::where('location_a', '=', $request->location_a)->orderByDesc('updated_at')->paginate(15);
+            }
+
+            elseif(isset($request->purchase_date)){
+                $entries = Inventory::where('purchase_date', '=', $request->purchase_date)->orderByDesc('updated_at')->paginate(15);
+            }
+
+            else $entries = Inventory::orderByDesc('updated_at')->paginate(15);
+
             $misc['totalDBEntries'] = Inventory::count();
             $misc['lastDBUpdate'] = Inventory::orderByDesc('updated_at')->first()->updated_at;
             $misc['lastDBUpdateHuman'] = Inventory::orderByDesc('updated_at')->first()->updated_at->diffForHumans();
 
-            // dd(Inventory::count());
         }
 
-        return Inertia::render('Database', ['entries' => $entries, 'misc' => $misc]);
+        return Inertia::render('Database/Accounting/Filter', ['entries' => $entries, 'misc' => $misc]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -162,51 +170,6 @@ class DatabaseController extends Controller
                 }
             }
 
-            return redirect('/database');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return redirect('/databaselist');
     }
 }
